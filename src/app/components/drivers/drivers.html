@@ -1,0 +1,30 @@
+<p>drivers works!</p>
+
+
+<div class="toolbar">
+  <button (click)="getDrivers()">טען נהגים</button>
+  <button (click)="addDrivers()">הוסף נהג לדוגמה</button>
+  <button (click)="putDrivers()">עדכן נהג (put)</button>
+  <button (click)="DeleteDrivers()">מחק נהג (delete)</button>
+</div>
+
+<section class="status">
+  <p *ngIf="!drivers || drivers.length === 0">אין נהגים זמינים — לחץ "טען נהגים".</p>
+  <p *ngIf="drivers && drivers.length > 0">נמצאו {{ drivers.length }} נהגים:</p>
+</section>
+
+<table *ngIf="drivers && drivers.length > 0" class="drivers-table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>שם</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of drivers">
+      <td>{{ d.id }}</td>
+      <td>{{ d.name }}</td>
+    </tr>
+  </tbody>
+</table>
+

@@ -1,31 +1,14 @@
-
-import { Component } from '@angular/core';
-import { LoggerService } from './service/logger';
-
-
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Drivers } from './components/drivers/drivers';
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet,Drivers],
   templateUrl: './app.html',
-
+  styleUrl: './app.css'
 })
-
-
-export class AppComponent {
-
-  constructor(private logger: LoggerService) {}
-
-  doSomething() {
-    this.logger.log('בוצעה פעולה כלשהי');
-  }
-
-  showLogs() {
-    console.log(this.logger.getLogs());
-  }
-
- 
-  text1 = 'Angular';
-  text2 = 'Hello World';
-  text3 = 'אבגדה';
+export class App {
+  protected readonly title = signal('less7');
 }
 
 
